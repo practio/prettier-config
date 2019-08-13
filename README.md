@@ -14,7 +14,7 @@ $ npm i --dev @practio/prettier-config
 
 After that you need to add the following config to the package.json file of your project:
 
-```json
+```jsonc
 {
   // ...
   "prettier": "@practio/prettier-config"
