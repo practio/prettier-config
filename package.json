@@ -1,0 +1,19 @@
+{
+  "name": "prettier-config",
+  "version": "0.0.1",
+  "description": "Practio's global prettier config",
+  "main": "index.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/practio/prettier-config.git"
+  },
+  "author": "Practio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/practio/prettier-config/issues"
+  },
+  "homepage": "https://github.com/practio/prettier-config#readme",
+  "scripts": {
+    "postversion": "git push && git push --tags"
+  }
+}
