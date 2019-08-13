@@ -9,7 +9,7 @@ In order to use this config in your project do the following:
 Install this module:
 
 ```bash
-$ npm i --dev @practio/prettier-config
+$ npm i -D @practio/prettier-config
 ```
 
 After that you need to add the following config to the package.json file of your project:
