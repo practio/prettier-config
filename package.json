@@ -1,6 +1,6 @@
 {
   "name": "@practio/prettier-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Practio's global prettier config",
   "main": "index.json",
   "repository": {
