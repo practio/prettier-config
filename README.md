@@ -1,6 +1,6 @@
 # @practio/prettier-config
 
-Practio's global Prettier config.
+Practio's global [Prettier](https://prettier.io/) config.
 
 ## Usage
 
