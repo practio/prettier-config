@@ -12,7 +12,7 @@ Install this module:
 $ npm i -D @practio/prettier-config
 ```
 
-After that you need to add the following config to the package.json file of your project:
+**Important!** After that you need to add the following line to the package.json file of your project:
 
 ```jsonc
 {
@@ -26,3 +26,27 @@ After that you need to add the following config to the package.json file of your
 If you'd like your editor to automatically run Prettier for you, then download the Prettier extenstion for your editor. 
 
 **Important!** Make sure to enable the eslint integration option (prettier-eslint) of the extension to make sure that our eslint rules are respected.
+
+## Adding automatic formatting as part of deploying
+
+The merge script of [ci-merge](https://github.com/practio/ci-merge) used by ready builds on Teamcity tries to run the script `format` if one is defined in package.json. So in order to get auto formatting as part of deploys you must define a `format` script.
+
+First start by ensuring you have completed the steps in the **Usage** section of this readme. After, install the modules needed for our format script:
+
+```bash
+$ npm i -D prettier prettier-eslint-cli
+```
+
+Then add the following script to the package.json file of your project:
+
+```jsonc
+{
+  "scripts": {
+    // ...
+    "format": "prettier-eslint --write \"./**/*.@(js|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\""
+  },
+}
+```
+
+That's all. Next time you deploy, your code will be formatted as well.
+
