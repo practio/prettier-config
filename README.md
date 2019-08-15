@@ -43,7 +43,7 @@ Then add the following script to the package.json file of your project:
 {
   "scripts": {
     // ...
-    "format": "prettier-eslint --write \"./**/*.@(js|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\""
+    "format": "prettier-eslint --write \"**/*.@(js|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\""
   },
 }
 ```
