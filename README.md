@@ -29,7 +29,7 @@ If you'd like your editor to automatically run Prettier for you, then download t
 
 ## Adding automatic formatting as part of deploying
 
-The merge script of [ci-merge](https://github.com/practio/ci-merge) used by ready builds on Teamcity tries to run the script `format` if one is defined in package.json. So in order to get auto formatting as part of deploys you must define a `format` script.
+The merge script of [ci-merge](https://github.com/practio/ci-merge) used by ready builds on [Teamcity](https://build.practio.com) tries to run the script `format` if one is defined in package.json. So in order to get auto formatting as part of deploys you must define a `format` script.
 
 First start by ensuring you have completed the steps in the **Usage** section of this readme. After, install the modules needed for our format script:
 
