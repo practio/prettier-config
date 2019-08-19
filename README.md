@@ -48,6 +48,8 @@ Then add the following script to the package.json file of your project:
 }
 ```
 
+If you need the script to ignore some specific folders then add a `.eslintignore` file to the root of the repository and add the globs that needs to be ignored.
+
 That's all. Next time you deploy, your code will be formatted as well.
 
 NB! A limitation here is that any file statring with a dot will not be formatted by prettier here (hopefully in the future [prettier-eslint-cli](https://github.com/prettier/prettier-eslint-cli) will allow us to control the `dot` option of the [glob](https://github.com/isaacs/node-glob) module that it is using internally).
