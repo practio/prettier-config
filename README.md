@@ -48,7 +48,7 @@ Then add the following script to the package.json file of your project:
 }
 ```
 
-If you need the script to ignore some specific folders then add a `.eslintignore` file to the root of the repository and add the globs that needs to be ignored.
+If you need the script to ignore some specific folders then add a `.prettierignore` file to the root of the repository and add the globs that needs to be ignored (it uses [gitignore syntax](https://git-scm.com/docs/gitignore#_pattern_format)).
 
 That's all. Next time you deploy, your code will be formatted as well.
 
