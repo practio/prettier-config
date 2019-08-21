@@ -23,7 +23,7 @@ $ npm i -D @practio/prettier-config
 
 ## Usage with your editor
 
-If you'd like your editor to automatically run Prettier for you, then download the Prettier extenstion for your editor. 
+If you'd like your editor to automatically run Prettier for you, then download the Prettier extenstion for your editor. It's recommended that you enable the "format on save" option in your editor (for vscode add `"editor.formatOnSave": true` to your settings.json file).
 
 **Important!** Make sure to enable the eslint integration option (prettier-eslint) of the extension to make sure that our eslint rules are respected.
 
