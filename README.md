@@ -37,13 +37,14 @@ Then install the modules needed for the formatting script and commit hook:
 $ npm i -D prettier husky lint-staged
 ```
 
-Then add the following script to the package.json file of your project:
+Then add the following scripts to the package.json file of your project (notice that the `format` script is also calling a `eslint:fix` script, see the [eslint-config repo](https://github.com/practio/eslint-config-practio) on how to add it):
 
 ```jsonc
 {
   "scripts": {
     // ...
-    "format": "prettier --loglevel warn --write \"**/*.@(js|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\""
+    "prettier:write": "prettier --loglevel warn --write \"**/*.@(js|jsx|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\"",
+    "format": "npm run eslint:fix && npm run prettier:write"
   }
 }
 ```
@@ -58,7 +59,7 @@ and add the following two entries to the root of the package.json file:
     }
   },
   "lint-staged": {
-    "*.@(js|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)": [
+    "*.@(js|jsx|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)": [
       "prettier --loglevel warn --write",
       "git add"
     ]
