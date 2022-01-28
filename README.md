@@ -49,23 +49,19 @@ Then add the following scripts to the package.json file of your project (notice 
 }
 ```
 
-and add the following two entries to the root of the package.json file:
+Install [lint-staged](https://www.npmjs.com/package/lint-staged) as a dev dependency and add the following entry to the root of the package.json file:
 
 ```jsonc
 {
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.@(js|jsx|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)": [
-      "prettier --loglevel warn --write",
-      "git add"
+      "prettier --loglevel warn --write"
     ]
   }
 }
 ```
+
+Next install [husky](https://typicode.github.io/husky/#/?id=install) as a dev dependency and add a pre-commit hook by using the `npx husky add` command (see their docs). In the `pre-commit` file inside the `.husky` folder add the following line `npx --no-install lint-staged`.
 
 You have now added a `format` script that can be executed in order to format the whole repository (for repositories that are merged with ready builds on [Teamcity](https://build.practio.com), the merge script of [ci-merge](https://github.com/practio/ci-merge) tries to run the script `format` if one is defined in package.json).
 
