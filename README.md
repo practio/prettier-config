@@ -37,14 +37,18 @@ Then install the modules needed for the formatting script and commit hook:
 $ npm i -D prettier husky lint-staged
 ```
 
-Then add the following scripts to the package.json file of your project (notice that the `format` script is also calling a `eslint:fix` script, see the [eslint-config repo](https://github.com/practio/eslint-config-practio) on how to add it):
+Next add a pre-commit hook with husky by using the `npx husky add` command (see their docs). In the `pre-commit` file inside the `.husky` folder add the following line `npx --no lint-staged`.
+
+Then add/overwrite the following scripts in the package.json file of your project (notice that the `format` script is also calling a `eslint:fix` script, see the [eslint-config repo](https://github.com/practio/eslint-config-practio) on how to add it):
 
 ```jsonc
 {
   "scripts": {
     // ...
+    "init-husky": "node -e \"if(process.env.CI === undefined && !['test', 'staging', 'production'].includes(process.env.NODE_ENV)) { require('husky').install(); }\"",
     "prettier:write": "prettier --loglevel warn --write \"**/*.@(js|jsx|ts|mjs|json|css|scss|less|html|htm|md|yml|yaml)\"",
-    "format": "npm run eslint:fix && npm run prettier:write"
+    "format": "npm run eslint:fix && npm run prettier:write",
+    "prepare": "npm run init-husky"
   }
 }
 ```
@@ -60,8 +64,6 @@ and add the following entry to the root of the package.json file:
   }
 }
 ```
-
-Next add a pre-commit hook with husky by using the `npx husky add` command (see their docs). In the `pre-commit` file inside the `.husky` folder add the following line `npx --no lint-staged`.
 
 You have now added a `format` script that can be executed in order to format the whole repository (for repositories that are merged with ready builds on [Circle-CI](https://app.circleci.com/projects/project-dashboard/github/practio/), the merge script of [ci-merge](https://github.com/practio/ci-merge) tries to run the script `format` if one is defined in package.json).
 
